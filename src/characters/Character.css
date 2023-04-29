@@ -1,0 +1,29 @@
+.characterContainer {
+    display:flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+    height:85vh;
+    width:80rem;
+    margin:auto;
+    overflow:scroll;
+    position:relative;
+    top:1.5rem;
+    background-color: rgba(220,220,220,.5);
+}
+
+.characterCard {
+    border:5px solid black;
+    display:flex;
+    flex-direction: column;
+    align-items:center;
+    justify-content: space-around;
+    width: 15rem;
+    height:25rem;
+    margin:10px;
+    text-align: center;
+}
+
+.charPic {
+    width:14rem;
+}
