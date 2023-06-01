@@ -1,20 +1,27 @@
-import React from 'react'
+import React, {useState} from 'react'
 import './App.css'
 import Header from './header/Header'
 import Characters from './characters/Character'
 
 
 const App = () => {
-
+  const [characters, setCharacters] = useState([])
+  const [search, setSearch] = useState('')
  
-
-
   return (
     <>
-    <Header />
+    <Header 
+      search={search}
+      setSearch={setSearch}
+    />
       <div className='appContainer'>
         
-        <Characters />
+        <Characters 
+          characters={characters}
+          setCharacters={setCharacters}  
+          search={search}
+          setSearch={setSearch}
+        />
       </div>
     </>
   )

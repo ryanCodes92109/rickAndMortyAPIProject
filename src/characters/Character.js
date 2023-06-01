@@ -3,10 +3,8 @@ import './Character.css'
 import CharacterCard from './CharacterCard'
 import { getCharacter } from 'rickmortyapi'
 
-const Characters = () => {
+const Characters = ({characters, setCharacters, search}) => {
 
-  
-  const [characters, setCharacters] = useState([]);
   useEffect(() => {
     fetchData("https://rickandmortyapi.com/api/character");
   }, []);
@@ -21,20 +19,15 @@ const Characters = () => {
       fetchData(data.info.next);
     }
   };
-    console.log(characters)
 
-    const mappedCharacters = characters.map((char) => (
-      <CharacterCard 
-        key={char.id} 
-        {...char}
+  const searchCharacters = characters.filter(char => char.name.toLowerCase().includes(search))
 
-      />
-    ));
+  const mappedCharacters = searchCharacters.map(char => (
+    <CharacterCard key={char.id} name={char.name} status={char.status} species={char.species} image={char.image} /> ))
 
   return (
     <div className='characterContainer'>
-      {mappedCharacters}
-       
+       {mappedCharacters}
     </div>
   )
 }
